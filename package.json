@@ -1,0 +1,55 @@
+{
+  "name": "kindred-node",
+  "description": "Adds a components system to scene-tree",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "test": "standard",
+    "start": "budo demo.js:bundle.js -- -t babelify",
+    "bundle": "browserify demo.js -o bundle.js -t babelify",
+    "preversion": "npm t"
+  },
+  "dependencies": {
+    "babelify": "^7.3.0",
+    "canvas-fit": "^1.5.0",
+    "canvas-orbit-camera": "^1.0.2",
+    "eye-vector": "0.0.0",
+    "gl-mat4": "^1.1.4",
+    "gl-quat": "^1.0.0",
+    "gl-vec3": "^1.0.3",
+    "inherits": "^2.0.1",
+    "key-pressed": "0.0.1",
+    "scene-tree": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-es2015-block-scoping": "^6.10.1",
+    "babel-plugin-transform-es2015-classes": "^6.9.0",
+    "browserify": "^13.0.1",
+    "budo": "^8.3.0",
+    "bunny": "^1.0.1",
+    "canvas-fit": "^1.5.0",
+    "canvas-orbit-camera": "^1.0.2",
+    "gl-mat4": "^1.1.4",
+    "icosphere": "^1.0.0",
+    "key-pressed": "0.0.1",
+    "kindred-component": "^1.0.0",
+    "kindred-geometry": "^1.0.0",
+    "kindred-shader": "^1.0.1",
+    "standard": "^7.1.2",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.6.0"
+  },
+  "babel": {
+    "plugins": [
+      "transform-es2015-block-scoping",
+      "transform-es2015-classes"
+    ]
+  },
+  "keywords": [
+    "ecosystem:kindred"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kindredjs/kindred-node"
+  }
+}
