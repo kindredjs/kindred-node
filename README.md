@@ -86,7 +86,7 @@ console.log(node.data.color) // [1, 0, 1, 1]
 
 ### 3D Transforms
 
-### `node.setPosition(x, y, z)`
+#### `node.setPosition(x, y, z)`
 
 Updates the node's position. Note that this method should be used instead of modifying `node.data.position` directly, as it also triggers an update of the node's matrices.
 
@@ -97,7 +97,7 @@ node.setPosition(0, 1, 0)
 node.setPosition([1, 1, 1])
 ```
 
-### `node.setRotation(x, y, z)`
+#### `node.setRotation(x, y, z)`
 
 Updates the node's rotation quaternion. Again, this should be called instead of modifying `node.data.rotation` directly.
 
@@ -108,7 +108,7 @@ node.setRotation(0, 0, 0, 1)
 node.setRotation([0, 0, 0, 1])
 ```
 
-### `node.setEuler(x, y, z, order)`
+#### `node.setEuler(x, y, z, order)`
 
 Update the node's rotation quaternion using euler (XYZ) angles. Optionally you can pass in an `order` string to specify the order in which to apply the rotations. This method is included for convenience, but is generally slower than using `node.setRotation` directly.
 
@@ -121,7 +121,7 @@ node.setRotation([Math.PI, Math.PI, 1])
 node.setRotation([Math.PI, Math.PI, 1], 'zxy')
 ```
 
-### `node.setScale(x, y, z)`
+#### `node.setScale(x, y, z)`
 
 Updates the node's scale. Again, this should be called instead of modifying `node.data.rotation` directly.
 
@@ -133,21 +133,21 @@ node.setScale([2, 3, 2])
 node.setScale(1.5)
 ```
 
-### `node.tick()`
+#### `node.tick()`
 
 Traverses through the node and its descendants, updating their normal and model matrices relative to `node`. You should call this once per frame, generally just before rendering the scene.
 
-### `node.modelMatrix`
+#### `node.modelMatrix`
 
 4x4 `Float32Array` matrix that contains the transformation required to place the node at its correct position in the scene.
 
-### `node.normalMatrix`
+#### `node.normalMatrix`
 
 3x3 `Float32Array` matrix that contains the transformation required for the node's normals to correctly light the object given its new position in the scene.
 
 ### Scene Hierarchy
 
-### `node.add(children...)`
+#### `node.add(children...)`
 
 Adds one or more `children` to a given `node`. Accepts a single node, an array of nodes, or a mixture of both across multiple arguments.
 
@@ -159,7 +159,7 @@ root.add([Node(), Node(), Node()])
 root.add(Node(), Node(), Node())
 ```
 
-### `node.addOne(child)`
+#### `node.addOne(child)`
 
 `node.add()` without any of the sugar: adds a single `child` node.
 
@@ -169,7 +169,7 @@ var root = Node()
 root.addOne(Node())
 ```
 
-### `node.remove(child)`
+#### `node.remove(child)`
 
 Removes `child` from `node`, if applicable.
 
@@ -181,7 +181,7 @@ root.add(child)
 root.remove(child)
 ```
 
-### `node.clear()`
+#### `node.clear()`
 
 Removes any children attached to the given `node`.
 
@@ -195,7 +195,7 @@ root.clear()
 console.log(root.children.length) // 0
 ```
 
-### `node.each(visitor)`
+#### `node.each(visitor)`
 
 Calls the `visitor` function on each descendent node in the tree (depth first,
 pre-order). Note that `visitor` is not called on `node` itself.
@@ -221,7 +221,7 @@ root.each(function visitor (node) {
 // 5
 ```
 
-### `node.findup(visitor)`
+#### `node.findup(visitor)`
 
 Walks up the tree from `node` until hitting the root element, calling `visitor` on each node along the way.
 
@@ -242,7 +242,7 @@ child.findup(function visitor (node) {
 // 1
 ```
 
-### `node.flat(output)`
+#### `node.flat(output)`
 
 Returns a flat array of all the child nodes in a tree.
 
@@ -260,7 +260,7 @@ var ids = root.flat().map(d => d.data.id)
 console.log(ids) // [0, 1, 2, 3, 4, 5]
 ```
 
-### `node.size()`
+#### `node.size()`
 
 Gets the total number of descendent nodes of `node`, not including `node` itself:
 
@@ -277,7 +277,7 @@ var root = Node({ id: 0 }).add(
 console.log(root.size()) // 5
 ```
 
-### `getNodeList = node.list([sortFunction])`
+#### `getNodeList = node.list([sortFunction])`
 
 Returns a function that sorts descendent nodes only as required using `sortFunction`, returning a flat array of the results. This is the preferred way to iterate over the elements in the tree when you're ready to render them.
 
@@ -296,7 +296,7 @@ function render () {
 }
 ```
 
-### `node.resetLists()`
+#### `node.resetLists()`
 
 Call this on a node whenever something has occurred that would change its sort order, e.g. its position has been changed. This will reset any existing lists to sort their contents again, provided the root node is an ancestor of `node`.
 
