@@ -22,7 +22,7 @@ function KindredNode (props) {
     return new KindredNode(props)
   }
 
-  SceneNode.call(this)
+  SceneNode.call(this, props)
   this._projection = null
   this._componentList = []
   this._componentIndex = {}
