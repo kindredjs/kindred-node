@@ -66,12 +66,13 @@ KindredNode.prototype.loop = function (canvas, runFrame) {
   this._initLoopData()
 
   if (!canvas) {
+    var ratio = this.data.pixelRatio || 1
     canvas = document.createElement('canvas')
     document.body.appendChild(canvas)
-    window.addEventListener('resize', Fit(canvas), false)
+    window.addEventListener('resize', Fit(canvas, null, ratio), false)
   }
 
-  var gl = canvas.getContext('webgl')
+  var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
   var looping = true
 
   window.requestAnimationFrame(loop)
