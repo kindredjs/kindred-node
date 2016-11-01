@@ -127,6 +127,8 @@ KindredNode.prototype.draw = function (gl, camera) {
   scratchDrawProps.fog = this.data.fog
   scratchDrawProps.eye = eyeVector(scratchDrawProps.view, scratchEye)
   scratchDrawProps.frame = this.data.frame++
+  scratchDrawProps.width = gl.canvas.width
+  scratchDrawProps.height = gl.canvas.height
 
   var background = this.data.background
   if (background) {
