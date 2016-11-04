@@ -28,7 +28,7 @@ function KindredNode (props) {
   this._componentIndex = {}
   delete this._componentIndex.x // V8 perf hack :')
 
-  this.data.visible = 'visible' in props ? props.visible : true
+  this.data.visible = props && 'visible' in props ? props.visible : true
 }
 
 KindredNode.prototype.use = function (Component, props) {
