@@ -15,6 +15,7 @@ var Node = require('kindred-node')
 var camera = Node().use(Turntable)
 var sphere = Sphere()
 var scene = Node({
+  pixelRatio: window.devicePixelRatio || 1,
   background: [1, 1, 1]
 })
 

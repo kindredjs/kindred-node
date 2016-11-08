@@ -22,11 +22,13 @@ function KindredNode (props) {
     return new KindredNode(props)
   }
 
-  SceneNode.call(this)
+  SceneNode.call(this, props)
   this._projection = null
   this._componentList = []
   this._componentIndex = {}
   delete this._componentIndex.x // V8 perf hack :')
+
+  this.data.visible = props && 'visible' in props ? props.visible : true
 }
 
 KindredNode.prototype.use = function (Component, props) {
@@ -66,12 +68,13 @@ KindredNode.prototype.loop = function (canvas, runFrame) {
   this._initLoopData()
 
   if (!canvas) {
+    var ratio = this.data.pixelRatio || 1
     canvas = document.createElement('canvas')
     document.body.appendChild(canvas)
-    window.addEventListener('resize', Fit(canvas), false)
+    window.addEventListener('resize', Fit(canvas, null, ratio), false)
   }
 
-  var gl = canvas.getContext('webgl')
+  var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
   var looping = true
 
   window.requestAnimationFrame(loop)
@@ -126,6 +129,8 @@ KindredNode.prototype.draw = function (gl, camera) {
   scratchDrawProps.fog = this.data.fog
   scratchDrawProps.eye = eyeVector(scratchDrawProps.view, scratchEye)
   scratchDrawProps.frame = this.data.frame++
+  scratchDrawProps.width = gl.canvas.width
+  scratchDrawProps.height = gl.canvas.height
 
   var background = this.data.background
   if (background) {
