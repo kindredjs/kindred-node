@@ -22,8 +22,7 @@ var scene = Node.Scene({
 scene.add(camera, sphere)
 scene.loop(function (gl, width, height) {
   scene.step()
-  scene.tick()
-  scene.draw(gl, camera)
+  Render.draw(gl, scene, camera)
 })
 ```
 
@@ -81,8 +80,6 @@ console.log(node.data.color) // [1, 0, 1, 1]
 
 #### `scene.step(props)`
 
-#### `scene.tick()`
-
 #### `scene.draw(gl, camera)`
 
 ### 3D Transforms
@@ -133,10 +130,6 @@ node.setScale(1, 2, 1)
 node.setScale([2, 3, 2])
 node.setScale(1.5)
 ```
-
-#### `node.tick()`
-
-Traverses through the node and its descendants, updating their normal and model matrices relative to `node`. You should call this once per frame, generally just before rendering the scene.
 
 #### `node.modelMatrix`
 
