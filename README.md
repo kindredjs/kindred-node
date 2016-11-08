@@ -14,7 +14,7 @@ var Node = require('kindred-node')
 
 var camera = Node().use(Turntable)
 var sphere = Sphere()
-var scene = Node({
+var scene = Node.Scene({
   background: [1, 1, 1]
 })
 
@@ -74,15 +74,15 @@ console.log(node.data.color) // [1, 0, 1, 1]
 
 ### Game Loop
 
-#### `node.loop(options, eachFrame)`
+#### `scene.loop(options, eachFrame)`
 
-#### `node.perspective(fov, width, height, near, far)`
+#### `scene.perspective(fov, width, height, near, far)`
 
-#### `node.step(props)`
+#### `scene.step(props)`
 
-#### `node.draw(gl, camera)`
+#### `scene.draw(gl, camera)`
 
-#### `node.tick()`
+#### `scene.tick()`
 
 ### 3D Transforms
 
