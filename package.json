@@ -1,7 +1,7 @@
 {
   "name": "kindred-node",
   "description": "Adds a components system to scene-tree",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "test": "standard",
