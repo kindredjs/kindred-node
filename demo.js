@@ -78,7 +78,7 @@ class FollowComponent extends Component('follow') {
 const camera = Camera(canvas)
 const view = new Float32Array(16)
 const proj = new Float32Array(16)
-const root = Node()
+const root = Node.Scene()
 const node = Node({ scale: 0.25 })
 
 const normalShader = Shader`
