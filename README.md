@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
 [![](https://img.shields.io/npm/v/kindred-node.svg?style=flat-square)](https://npmjs.com/package/kindred-node)
 
-Builds on top of [scene-tree](http://github.com/hughsk/scene-tree) to include a component system (see [kindred-component](https://github.com/hughsk/kindred-component)) and game loop.
+Builds on top of [scene-tree](http://github.com/hughsk/scene-tree) to include a component system (see [kindred-component](https://github.com/kindredjs/kindred-component)) and game loop.
 
 ``` js
 var Turntable = require('kindred-turntable-camera')
